@@ -1,45 +1,55 @@
-# Live Expense Tracker
+# 💸 Live Expense Tracker  
 
-The **Live Expense Tracker** is a dynamic web-based application that helps users track their expenses and visualize them using various types of charts. This project was developed as part of a web development internship at CodeClause.
+> A sleek and interactive **real-time expense tracking web application** built using **HTML, CSS, JavaScript, and Chart.js**.  
+> Designed with a **modern transparent (glassmorphism) interface**, it visualizes financial data through dynamic, animated charts — helping users gain instant insights into their spending habits.  
 
-## Features
+---
 
-### Expense Tracking
-- Users can input their expenses, including the item and the amount in ₹ (Indian Rupees).
-- The application allows users to submit multiple expenses.
+## 🖼️ Preview  
 
-### Chart Visualizations
-- **Bar Chart:**
-  - Visualizes expenses using a bar chart.
-- **Line Chart:**
-  - Represents expenses over time using a line chart.
-- **Doughnut Chart:**
-  - Displays the distribution of expenses using a doughnut chart.
-- **Polar Area Chart:**
-  - Shows the proportion of each expense category using a polar area chart.
+<img width="1818" height="910" alt="image" src="https://github.com/user-attachments/assets/0112894d-f40c-4fa9-99dd-5866c31d017b" />
 
-### Interactive Interface
-- The application provides an intuitive and user-friendly interface for adding expenses and viewing charts.
+*(Modern, transparent dashboard with live charts and animated background)*  
 
-### Clear All Data
-- Users can clear all the entered data, providing a fresh start for expense tracking.
+---
 
-## How to Use
+## 🌟 Key Features  
 
-1. **Input Expense:**
-   - Fill in the item name and the corresponding expense amount (in ₹) in the provided fields.
-   - Click the "Submit" button to add the expense.
+| 🌈 Feature | 💬 Description |
+|-------------|----------------|
+| ⚡ **Live Expense Tracking** | Add and visualize your expenses instantly across multiple chart types. |
+| 💎 **Glassmorphism UI** | A smooth, transparent interface with a soft blur effect for a futuristic look. |
+| 🔥 **Animated Background** | Dynamic smoke video background that adds depth and life to the design. |
+| 📊 **Multi-Chart Visualization** | View your data through **Bar**, **Line**, **Doughnut**, and **Polar Area** charts — powered by Chart.js. |
+| 🧹 **Instant Clear Functionality** | Remove all entries and refresh the dashboard with a single click. |
+| 📱 **Fully Responsive** | Adaptable design ensuring seamless performance across all devices. |
+| 💡 **User-Friendly Interface** | Minimalist form input with intuitive design for quick data entry. |
 
-2. **Clear Data:**
-   - Click the "Clear All" button to clear all entered data.
+---
 
-## Additional Notes
+## 🧠 Tech Stack  
 
-- The project utilizes [Chart.js](https://www.chartjs.org/) library for chart visualizations.
-- Smoke animation adds to the aesthetics of the application, making it visually appealing.
-- The application is designed with a responsive layout, ensuring compatibility across devices.
-- The project is hosted on [GitHub](https://github.com/shubhang1238/CodeClauseInternship_Text_Editor) for further development and collaboration.
+| 🧩 Category | 🛠️ Technologies Used |
+|--------------|----------------------|
+| 🎨 **Frontend** | HTML5, CSS3, JavaScript (Vanilla) |
+| 📊 **Data Visualization** | [Chart.js](https://www.chartjs.org/) |
+| 🪄 **Animations & Effects** | [Izmir.js](https://github.com/utsuboco/izmir) |
+| 💻 **Version Control** | Git, GitHub |
 
-## Contributing
+---
 
-Contributions are welcome! Fork the repository, make your changes, and submit a pull request.
+## ⚙️ Installation & Setup  
+
+Follow these steps to run the project locally 🚀  
+
+```bash
+# 1️⃣ Clone this repository
+git clone https://github.com/shubhang1238/CodeClauseInternship_Expense-Tracker.git
+
+# 2️⃣ Navigate into the project directory
+cd CodeClauseInternship_Expense-Tracker
+
+# 3️⃣ Open the project in your browser
+start index.html     # For Windows
+# OR
+open index.html      # For macOS
