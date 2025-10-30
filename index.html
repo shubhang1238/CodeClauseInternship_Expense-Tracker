@@ -5,67 +5,206 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Live Expense Tracker</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/izmir/dist/izmir.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izmir/dist/css/izmir.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    /* --- Background Styling --- */
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      color: #fff;
+    }
+
+    .background {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* --- Title Animation --- */
+    .project-title h1 {
+      text-align: center;
+      font-size: 3rem;
+      color: #fff;
+      letter-spacing: 3px;
+      margin-top: 40px;
+    }
+
+    .project-title h1 span {
+      display: inline-block;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #00f2ff, 0 0 20px #00f2ff, 0 0 30px #00f2ff;
+      }
+
+      to {
+        text-shadow: 0 0 20px #ffffff, 0 0 30px #00f2ff, 0 0 40px #00f2ff;
+      }
+    }
+
+    /* --- Transparent Container --- */
+    .container {
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+      padding: 30px;
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #00eaff;
+      text-shadow: 0 0 10px #00eaff;
+    }
+
+    label {
+      color: #fff;
+      font-weight: 500;
+      margin-right: 10px;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid #00eaff;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      outline: none;
+      width: 150px;
+    }
+
+    input::placeholder {
+      color: #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #00f2ff, #0077ff);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #00ffcc, #0099ff);
+      box-shadow: 0 0 10px #00f2ff;
+    }
+
+    /* --- Graph Layout --- */
+    .graphs-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .chart {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 255, 255, 0.3);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+      transition: 0.3s;
+    }
+
+    .chart:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+    }
+
+    .chart h3 {
+      margin-bottom: 10px;
+      color: #00faff;
+      font-size: 1.2rem;
+      text-shadow: 0 0 5px #00faff;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 200px !important;
+    }
+  </style>
 </head>
+
 <body>
-  <div class="background"><video autoplay loop muted class="background-video" src="smoke.mp4"
-      type="video/mp4"></video>
+  <div class="background">
+    <video autoplay loop muted class="background-video" src="smoke.mp4" type="video/mp4"></video>
+
     <div class="project-title">
       <section>
         <h1>
-          <span>L</span>
-          <span>i</span>
-            <span>v</span>
-            <span>e</span>
-            <span> </span>
-            <span>E</span>
-            <span>x</span>
-            <span>p</span>
-            <span>e</span>
-            <span>n</span>
-            <span>s</span>
-            <span>e</span>
-            <span> </span>
-            <span>T</span>
-            <span>r</span>
-            <span>a</span>
-            <span>c</span>
-            <span>k</span>
-            <span>e</span>
-            <span>r</span>
+          <span>L</span><span>i</span><span>v</span><span>e</span>
+          <span>
+          </span><span>E</span><span>x</span><span>p</span><span>e</span><span>n</span><span>s</span><span>e</span>
+          <span>
+          </span><span>T</span><span>r</span><span>a</span><span>c</span><span>k</span><span>e</span><span>r</span>
         </h1>
-        <br>
-        <br>
+
         <div class="container">
           <h2>Expenditure</h2>
-          <br>
+
           <div class="input-section">
-            <form class="add-items"><label for="item">Item:</label><input type="text" name="item" class="item"
-                placeholder="Item Name" required><label class="rupee" for="Rupee">₹:</label><input type="number"
-                name="amount" min="0" class="amount" step="any" placeholder="Amount" required><button type="submit"
-                id="submit">Submit</button></form><button name="clear" class="clear">Clear All</button>
+            <form class="add-items">
+              <label for="item">Item:</label>
+              <input type="text" name="item" class="item" placeholder="Item Name" required>
+              <label class="rupee" for="Rupee">₹:</label>
+              <input type="number" name="amount" min="0" class="amount" step="any" placeholder="Amount" required>
+              <button type="submit" id="submit">Submit</button>
+            </form>
+            <button name="clear" class="clear">Clear All</button>
           </div>
+
           <div class="graphs-container">
             <div class="chart" id="chart1">
-              <h3>Bar Chart</h3><canvas id="chartCanvas1"></canvas>
+              <h3>Bar Chart</h3>
+              <canvas id="chartCanvas1"></canvas>
             </div>
             <div class="chart" id="chart2">
-              <h3>Line Chart</h3><canvas id="chartCanvas2"></canvas>
+              <h3>Line Chart</h3>
+              <canvas id="chartCanvas2"></canvas>
             </div>
             <div class="chart" id="chart3">
-              <h3>Doughnut Chart</h3><canvas id="chartCanvas3"></canvas>
+              <h3>Doughnut Chart</h3>
+              <canvas id="chartCanvas3"></canvas>
             </div>
             <div class="chart" id="chart4">
-              <h3>Polar Area Chart</h3><canvas id="chartCanvas4"></canvas>
+              <h3>Polar Area Chart</h3>
+              <canvas id="chartCanvas4"></canvas>
             </div>
           </div>
         </div>
       </section>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 
